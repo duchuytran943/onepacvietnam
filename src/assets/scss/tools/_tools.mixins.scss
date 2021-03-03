@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+@mixin size($width, $height: '') {
+  @if $height == '' {
+    height: $width;
+  } @else {
+    height: $height;
+  }
+
+  width: $width;
+}
+
+@mixin subText($width) {
+  max-width: $width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

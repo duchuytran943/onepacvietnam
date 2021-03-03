@@ -1,0 +1,11 @@
+// Tools
+@import 'tools/tools.mixins';
+
+// Settings
+@import 'settings/settings.colors';
+@import 'settings/settings.global';
+@import 'settings/settings.normalize';
+@import 'settings/settings.reset';
+
+// Component
+@import 'components/index.scss';
