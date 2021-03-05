@@ -1,0 +1,23 @@
+.viewtoggle__container {
+  width: 100%;
+  margin-bottom: 0.5rem;
+
+  .viewtoggle {
+    .viewtoggle__item {
+      list-style: none;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      color: $color_gray_3;
+      cursor: pointer;
+
+      &:hover {
+        color: $color_gray_1;
+      }
+
+      &.active {
+        color: $color_green_1;
+        border-bottom: 2px solid $color_green_1;
+      }
+    }
+  }
+}
