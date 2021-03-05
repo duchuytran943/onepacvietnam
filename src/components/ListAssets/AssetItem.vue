@@ -4,19 +4,21 @@
       <ItemThumbnail />
     </div>
     <div class="item__info">
-      Info asset
+      <ItemInfo />
     </div>
   </div>
 </template>
 
 <script>
-import { ItemThumbnail } from '@/components/ItemThumbnail';
+import ItemThumbnail from './ItemThumbnail.vue';
+import ItemInfo from './ItemInfo.vue';
 
 export default {
   name: 'AssetItem',
 
   components: {
     ItemThumbnail,
+    ItemInfo,
   },
 
   data() {

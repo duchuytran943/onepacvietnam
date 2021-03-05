@@ -35,8 +35,21 @@
   }
 }
 
-.item__info {
-  padding: 0.5rem 1rem;
+.info__container {
+  .info__inner {
+    width: 100%;
+
+    .property {
+      display: flex;
+      padding: 0.5rem;
+      white-space: nowrap;
+      font-weight: $fw_bold;
+    }
+
+    .value {
+      padding: 0.5rem;
+    }
+  }
 }
 
 @media (min-width: 576px) {
