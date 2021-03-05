@@ -1,0 +1,33 @@
+.list__container {
+  margin-top: 0.5rem;
+}
+
+.item__container {
+  border-top: solid 1px $color_gray_1;
+  padding: 1rem 0.5rem;
+}
+
+.item__thumbnail {
+  background-color: red;
+  flex: 1;
+}
+
+.item__info {
+  background-color: yellow;
+  flex: 3;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  .item__container {
+    display: flex;
+  }
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}
