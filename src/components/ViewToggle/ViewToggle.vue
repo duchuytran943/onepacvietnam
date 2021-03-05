@@ -2,13 +2,13 @@
   <div class="viewtoggle__container">
     <ul class="viewtoggle">
       <li class="viewtoggle__item active">
-        <span>All</span>
+        <span>{{ $t('general.all') }}</span>
       </li>
       <li class="viewtoggle__item">
-        <span>Liked</span>
+        <span>{{ $t('general.liked') }}</span>
       </li>
       <li class="viewtoggle__item">
-        <span>Removed</span>
+        <span>{{ $t('general.removed') }}</span>
       </li>
     </ul>
   </div>
