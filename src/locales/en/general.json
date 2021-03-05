@@ -7,5 +7,18 @@
   "all": "All",
   "liked": "Liked",
   "removed": "Removed",
-  "searchEverthing": "Enter search everthing..."
+  "searchEverthing": "Enter search everthing...",
+  "action": {
+    "like": "Like",
+    "edit": "Edit",
+    "remove": "Remove"
+  },
+  "info": {
+    "title": "Title",
+    "dateCreate": "Date create",
+    "description": "Description",
+    "location": "Location",
+    "mediaType": "Media type",
+    "keywords": "Keywords"
+  }
 }
