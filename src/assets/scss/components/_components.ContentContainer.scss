@@ -1,0 +1,41 @@
+.content__container {
+  display: flex;
+  flex-direction: column;
+
+  .content__wrap {
+    background-color: red;
+  }
+
+  .search__container {
+    background-color: yellow;
+  }
+}
+
+@media (min-width: 576px) {
+  .content__container {
+  }
+}
+
+@media (min-width: 768px) {
+  .content__container {
+  }
+}
+
+@media (min-width: 992px) {
+  .content__container {
+    flex-direction: row-reverse;
+
+    .search__container {
+      flex: 3;
+    }
+
+    .content__wrap {
+      flex: 7;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .content__container {
+  }
+}
