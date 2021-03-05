@@ -1,10 +1,8 @@
 <template>
   <div class="content__container">
     <Search />
-    <div class="content__wrap">
-      <ViewToggle />
-      <ListAssets />
-    </div>
+    <ViewToggle />
+    <ListAssets />
   </div>
 </template>
 
