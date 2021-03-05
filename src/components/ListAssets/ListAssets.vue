@@ -1,12 +1,22 @@
 <template>
-  <div>
-    List Assets
+  <div class="list__container">
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
   </div>
 </template>
 
 <script>
+import AssetItem from './AssetItem.vue';
+
 export default {
-  components: {},
+  components: {
+    AssetItem,
+  },
 
   data() {
     return {};
