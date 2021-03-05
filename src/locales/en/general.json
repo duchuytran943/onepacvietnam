@@ -20,5 +20,9 @@
     "location": "Location",
     "mediaType": "Media type",
     "keywords": "Keywords"
+  },
+  "paginate": {
+    "prev": "Prev",
+    "next": "Next"
   }
 }
