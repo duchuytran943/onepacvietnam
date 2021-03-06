@@ -11,6 +11,7 @@
   .thumbnail {
     width: 100%;
     object-fit: cover;
+    border-radius: 0.5rem;
   }
 
   .action {
@@ -44,10 +45,13 @@
       padding: 0.5rem;
       white-space: nowrap;
       font-weight: $fw_bold;
+      color: $color_black_2;
     }
 
     .value {
+      @include wordBreak;
       padding: 0.5rem;
+      color: $color_black_2;
     }
   }
 }
