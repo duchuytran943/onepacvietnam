@@ -7,6 +7,26 @@
     <AssetItem />
     <AssetItem />
     <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
+    <AssetItem />
   </div>
 </template>
 

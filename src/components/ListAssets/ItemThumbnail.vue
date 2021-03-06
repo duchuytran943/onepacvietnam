@@ -1,6 +1,6 @@
 <template>
   <div class="thumbnail__container">
-    <img src="@/assets/images/v.jpg" class="thumbnail" />
+    <img v-lazy="'https://images.viblo.asia/60x60/45b54e5c-f950-47c1-bce8-3b733d03d1db.jpg'" class="thumbnail" />
     <ul class="action">
       <li class="action__item">{{ $t('general.action.like') }} +1</li>
       <li class="action__item">{{ $t('general.action.edit') }}</li>
