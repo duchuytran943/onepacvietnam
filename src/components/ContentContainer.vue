@@ -3,7 +3,8 @@
     <Search />
     <ViewToggle />
     <LoadingSpinner v-if="isLoading" />
-    <ListAssets :items="items" />
+    <ListAssets v-if="items.length" :items="items" />
+    <EmptyData v-else :isLoading="isLoading" />
     <Paginate
       v-model="currentPage"
       :page-count="pageCount"
@@ -31,7 +32,7 @@ import httpAxios from '@/httpAxios';
 import { Search } from '@/components/Search';
 import { ViewToggle } from '@/components/ViewToggle';
 import { ListAssets } from '@/components/ListAssets';
-import { LoadingSpinner } from '@/components/common';
+import { LoadingSpinner, EmptyData } from '@/components/common';
 
 export default {
   name: 'ContentContainer',
@@ -42,6 +43,7 @@ export default {
     ListAssets,
     Paginate,
     LoadingSpinner,
+    EmptyData,
   },
 
   data() {
@@ -52,6 +54,7 @@ export default {
       limit: 100,
       items: [],
       keyword: '',
+      collection: {},
     };
   },
 
@@ -100,7 +103,9 @@ export default {
         params,
       })
         .then(response => {
-          const { items, metadata } = response.data.collection;
+          this.collection = response.data.collection;
+          const { items, metadata } = this.collection;
+          localStorage.listAssets = JSON.stringify(items);
           this.items = items;
           this.pageCount = Math.ceil(metadata.total_hits / this.limit);
         })

@@ -1,0 +1,4 @@
+.content__empty {
+  @include size(100%, 60vh);
+  @include flexCenter;
+}

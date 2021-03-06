@@ -24,5 +24,6 @@
   "paginate": {
     "prev": "Prev",
     "next": "Next"
-  }
+  },
+  "dataEmpty": "Data empty"
 }
