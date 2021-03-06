@@ -1,46 +1,53 @@
 <template>
   <div class="info__container">
     <table class="info__inner">
-      <tr>
+      <tr v-if="title">
         <td class="property">
           <p>{{ $t('general.info.title') }}:</p>
         </td>
-        <td class="value"><p>KSC-2012-1796</p></td>
-      </tr>
-      <tr>
-        <td class="property">
-          <p>{{ $t('general.info.dateCreate') }}:</p>
+        <td class="value">
+          <p>{{ title }}</p>
         </td>
-        <td class="value"><p>2012-03-09T00:00:00Z</p></td>
       </tr>
-      <tr>
+      <tr v-if="dateCreated">
+        <td class="property">
+          <p>{{ $t('general.info.dateCreated') }}:</p>
+        </td>
+        <td class="value">
+          <p>{{ dateCreated }}</p>
+        </td>
+      </tr>
+      <tr v-if="description">
         <td class="property">
           <p>{{ $t('general.info.description') }}:</p>
         </td>
         <td class="value">
-          <p>
-            VANDENBERG AIR FORCE BASE, Calif. – At Vandenberg Air Force Base in California, the Orbital Science’s
-            Pegasus LX has been moved onto a transporter inside Orbital’s hangar.
-          </p>
+          <p>{{ description }}</p>
         </td>
       </tr>
-      <tr>
+      <tr v-if="location">
         <td class="property">
           <p>{{ $t('general.info.location') }}:</p>
         </td>
-        <td class="value"><p>Vandenberg AFB, CA</p></td>
+        <td class="value">
+          <p>{{ location }}</p>
+        </td>
       </tr>
-      <tr>
+      <tr v-if="mediaType">
         <td class="property">
           <p>{{ $t('general.info.mediaType') }}:</p>
         </td>
-        <td class="value"><p>image</p></td>
+        <td class="value">
+          <p>{{ mediaType }}</p>
+        </td>
       </tr>
-      <tr>
+      <tr v-if="keywords">
         <td class="property">
           <p>{{ $t('general.info.keywords') }}:</p>
         </td>
-        <td class="value"><p>"NuSTAR, Pegasus XL, expendable launch vehicle"</p></td>
+        <td class="value">
+          <p>{{ keywords }}</p>
+        </td>
       </tr>
     </table>
   </div>
@@ -50,8 +57,42 @@
 export default {
   components: {},
 
+  props: {
+    item: Object,
+  },
+
   data() {
     return {};
+  },
+
+  computed: {
+    info() {
+      return this.item.data[0];
+    },
+
+    title() {
+      return this.info.title;
+    },
+
+    dateCreated() {
+      return this.info.date_created && new Date(this.info.date_created).toUTCString();
+    },
+
+    description() {
+      return this.info.description;
+    },
+
+    location() {
+      return this.info.location;
+    },
+
+    mediaType() {
+      return this.info.media_type;
+    },
+
+    keywords() {
+      return this.info.keywords && this.info.keywords[0];
+    },
   },
 
   created() {},

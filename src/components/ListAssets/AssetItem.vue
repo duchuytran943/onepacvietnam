@@ -1,10 +1,10 @@
 <template>
   <div class="item__container">
     <div class="item__thumbnail">
-      <ItemThumbnail />
+      <ItemThumbnail :item="item" />
     </div>
     <div class="item__info">
-      <ItemInfo />
+      <ItemInfo :item="item" />
     </div>
   </div>
 </template>
@@ -15,6 +15,10 @@ import ItemInfo from './ItemInfo.vue';
 
 export default {
   name: 'AssetItem',
+
+  props: {
+    item: Object,
+  },
 
   components: {
     ItemThumbnail,
