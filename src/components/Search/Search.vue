@@ -1,7 +1,13 @@
 <template>
   <div class="search__container">
     <div class="search">
-      <input v-model="keyword" type="text" class="search__input" :placeholder="$t('general.searchEverthing')" />
+      <input
+        v-model="keyword"
+        type="text"
+        class="search__input"
+        :placeholder="$t('general.searchEverthing')"
+        @keyup.enter="onPressEnter"
+      />
       <span v-if="isShowSearchIcon" class="search__icon">
         <SearchIcon />
       </span>
@@ -40,6 +46,11 @@ export default {
   methods: {
     removeKeyword() {
       this.keyword = '';
+      this.$eventBus.$emit('searchByKeyword', this.keyword);
+    },
+
+    onPressEnter() {
+      this.$eventBus.$emit('searchByKeyword', this.keyword);
     },
   },
 };

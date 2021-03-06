@@ -19,6 +19,7 @@ Vue.config.productionTip = false;
 Vue.prototype.$backendUrl = process.env.VUE_APP_API_BASE_URL;
 Vue.prototype.$eventBus = eventBus;
 Vue.prototype.$vConfig = vConfig;
+Vue.prototype.$scrollToTop = () => window.scrollTo(0, 0);
 
 Vue.use(VueLazyload, {
   attempt: 2,
