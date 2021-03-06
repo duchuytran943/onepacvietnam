@@ -51,6 +51,7 @@ export default {
       pageCount: 1,
       limit: 100,
       items: [],
+      keyword: '',
     };
   },
 
@@ -58,22 +59,40 @@ export default {
 
   created() {
     this.getListData();
+    this.$eventBus.$on('searchByKeyword', this.searchByKeyword);
   },
 
   methods: {
     onChangeCurrentPage() {
       this.getListData();
+      this.$scrollToTop();
     },
 
-    getListData() {
+    searchByKeyword(keyword) {
+      this.keyword = keyword;
+      this.currentPage = 1;
+      this.getListData();
+    },
+
+    getParams() {
       const now = new Date();
       const nowYear = now.getFullYear();
-      const params = {
+      let params = {
         page: this.currentPage,
         year_start: 1,
         year_end: nowYear,
       };
+      if (this.keyword) {
+        params = {
+          page: this.currentPage,
+          q: this.keyword,
+        };
+      }
+      return params;
+    },
 
+    getListData() {
+      const params = this.getParams();
       this.isLoading = true;
       httpAxios({
         url: `${this.$backendUrl}/search`,
@@ -92,6 +111,10 @@ export default {
           this.isLoading = false;
         });
     },
+  },
+
+  beforeDestroy() {
+    this.$eventBus.$off('searchByKeyword', this.searchByKeyword);
   },
 };
 </script>
