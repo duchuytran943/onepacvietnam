@@ -39,7 +39,6 @@ export default {
   watch: {
     keyword() {
       this.isShowSearchIcon = this.keyword.trim() === '';
-      console.log(this.keyword);
     },
   },
 

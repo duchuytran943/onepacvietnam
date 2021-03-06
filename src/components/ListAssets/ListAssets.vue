@@ -1,6 +1,6 @@
 <template>
   <div class="list__container">
-    <AssetItem v-for="(item, index) in items" :key="index" :item="item" />
+    <AssetItem v-for="item in items" :key="item.data[0].nasa_id" :item="item" />
   </div>
 </template>
 
