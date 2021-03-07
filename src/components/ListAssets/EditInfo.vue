@@ -52,8 +52,8 @@
     </table>
 
     <div class="edit-info__footer">
-      <button class="btn btn--cancel" @click="closeModal()">Cancel</button>
-      <button class="btn btn--save" @click="updateEdit()">Save</button>
+      <button class="btn btn--cancel" @click="closeModal()">{{ $t('general.cancel') }}</button>
+      <button class="btn btn--save" @click="updateEdit()">{{ $t('general.save') }}</button>
     </div>
   </div>
 </template>

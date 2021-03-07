@@ -6,4 +6,10 @@ module.exports = {
     LIKED: 'liked',
     REMOVED: 'removed',
   },
+  SORT: {
+    NEWEST: 'newest',
+    OLDEST: 'oldest',
+    ATOZ: 'atoz',
+    ZTOA: 'ztoa',
+  },
 };

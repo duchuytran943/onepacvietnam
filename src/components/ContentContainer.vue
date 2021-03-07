@@ -1,6 +1,7 @@
 <template>
   <div class="content__container">
     <Search />
+    <SortBar :sort.sync="sort" />
     <ViewToggle :viewToggle.sync="viewToggle" />
     <LoadingSpinner v-if="isLoading" />
     <ListAssets v-if="listAssets.length" :items="listAssets" />
@@ -34,6 +35,7 @@ import { Search } from '@/components/Search';
 import { ViewToggle } from '@/components/ViewToggle';
 import { ListAssets } from '@/components/ListAssets';
 import { LoadingSpinner, EmptyData } from '@/components/common';
+import { SortBar } from '@/components/SortBar';
 
 export default {
   name: 'ContentContainer',
@@ -45,6 +47,7 @@ export default {
     Paginate,
     LoadingSpinner,
     EmptyData,
+    SortBar,
   },
 
   data() {
@@ -56,6 +59,7 @@ export default {
       keyword: '',
       collection: {},
       viewToggle: 'all',
+      sort: 'newest',
     };
   },
 
@@ -63,16 +67,17 @@ export default {
     ...mapState('collection', ['assets']),
 
     listAssets() {
+      const sortedAsstes = this.sortAssets();
       if (this.viewToggle === this.$vConfig.VIEW_TOGGLE.ALL) {
-        return this.assets.filter(asset => !asset.data[0].remove);
+        return sortedAsstes.filter(asset => !asset.data[0].remove);
       }
       if (this.viewToggle === this.$vConfig.VIEW_TOGGLE.LIKED) {
-        return this.assets.filter(asset => asset.data[0].like && !asset.data[0].remove);
+        return sortedAsstes.filter(asset => asset.data[0].like && !asset.data[0].remove);
       }
       if (this.viewToggle === this.$vConfig.VIEW_TOGGLE.REMOVED) {
-        return this.assets.filter(asset => asset.data[0].remove);
+        return sortedAsstes.filter(asset => asset.data[0].remove);
       }
-      return this.assets;
+      return sortedAsstes;
     },
   },
 
@@ -135,6 +140,35 @@ export default {
         .finally(() => {
           this.isLoading = false;
         });
+    },
+
+    sortAssets() {
+      const newAssets = [...this.assets];
+      if (this.sort === this.$vConfig.SORT.NEWEST) {
+        newAssets.sort((a, b) => {
+          const dateA = new Date(a.data[0].date_created);
+          const dateB = new Date(b.data[0].date_created);
+          return dateB - dateA;
+        });
+        return newAssets;
+      }
+      if (this.sort === this.$vConfig.SORT.OLDEST) {
+        newAssets.sort((a, b) => {
+          const dateA = new Date(a.data[0].date_created);
+          const dateB = new Date(b.data[0].date_created);
+          return dateA - dateB;
+        });
+        return newAssets;
+      }
+      if (this.sort === this.$vConfig.SORT.ATOZ) {
+        newAssets.sort((a, b) => `${a.data[0].title}`.localeCompare(b.data[0].title));
+        return newAssets;
+      }
+      if (this.sort === this.$vConfig.SORT.ZTOA) {
+        newAssets.sort((a, b) => `${b.data[0].title}`.localeCompare(a.data[0].title));
+        return newAssets;
+      }
+      return newAssets;
     },
   },
 
