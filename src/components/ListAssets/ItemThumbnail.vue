@@ -11,17 +11,38 @@
         {{ item.data[0].remove ? $t('general.action.undo') : $t('general.action.remove') }}
       </li>
     </ul>
+    <Modal v-if="showEditModal">
+      <template v-slot:header>
+        <h3>Edit Info</h3>
+      </template>
+      <template v-slot:body>
+        <EditInfo :item="item" :showEditModal.sync="showEditModal" />
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import { Modal } from '@/components/common';
+import EditInfo from './EditInfo.vue';
 
 export default {
   name: 'ItemThumbnail',
 
+  components: {
+    Modal,
+    EditInfo,
+  },
+
   props: {
     item: Object,
+  },
+
+  data() {
+    return {
+      showEditModal: false,
+    };
   },
 
   computed: {
@@ -29,12 +50,6 @@ export default {
       const link = this.item.links && this.item.links.filter(l => l.rel === 'preview');
       return link && link[0].href;
     },
-  },
-
-  components: {},
-
-  data() {
-    return {};
   },
 
   created() {},
@@ -58,7 +73,13 @@ export default {
       }
     },
 
-    onClickEdit() {},
+    onClickEdit() {
+      this.showEditModal = true;
+    },
+
+    onCloseModal() {
+      this.showEditModal = false;
+    },
   },
 };
 </script>
