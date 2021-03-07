@@ -91,7 +91,7 @@ export default {
     },
 
     keywords() {
-      if (!this.info.keywords.length) {
+      if (!this.info.keywords) {
         return '';
       }
       const displayKeywords = this.info.keywords.join(' | ');
