@@ -136,7 +136,7 @@ export default {
         })
         .catch(e => {
           console.log(e);
-          // this.$router.push('Error404');
+          this.$router.push('Error404');
         })
         .finally(() => {
           this.isLoading = false;
