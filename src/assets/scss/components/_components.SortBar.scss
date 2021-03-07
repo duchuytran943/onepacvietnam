@@ -1,0 +1,43 @@
+.sort-bar__container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px $color_gray_1;
+
+  .text {
+    margin-right: 1.5rem;
+    color: $color_gray_1;
+  }
+
+  .action {
+    display: flex;
+    justify-content: flex-end;
+
+    .action__item {
+      list-style: none;
+      padding: 0.25rem 0.5rem;
+      color: $color_gray_1;
+      cursor: pointer;
+      font-size: $fs_12;
+      font-weight: $fw_thin;
+      border: solid 1px $color_gray_1;
+      border-radius: 4px;
+
+      &:hover {
+        color: $color_green_1;
+        border: solid 1px $color_green_1;
+      }
+    }
+
+    .action__item + .action__item {
+      margin-left: 1rem;
+    }
+
+    .action__item.active {
+      background-color: $color_green_1;
+      color: $color_white;
+      border: solid 1px $color_green_1;
+    }
+  }
+}

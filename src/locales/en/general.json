@@ -28,5 +28,13 @@
     "next": "Next"
   },
   "dataEmpty": "Data empty",
-  "areYouSure": "Are you sure?"
+  "areYouSure": "Are you sure?",
+  "sort": {
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "aToZ": "A-Z",
+    "zToA": "Z-A"
+  },
+  "cancel": "Cancel",
+  "save": "Save"
 }
