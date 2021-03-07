@@ -91,7 +91,11 @@ export default {
     },
 
     keywords() {
-      return this.info.keywords && this.info.keywords[0];
+      if (!this.info.keywords.length) {
+        return '';
+      }
+      const displayKeywords = this.info.keywords.join(' | ');
+      return displayKeywords;
     },
   },
 
