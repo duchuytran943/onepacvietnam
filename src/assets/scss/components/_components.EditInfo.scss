@@ -1,0 +1,35 @@
+.edit-info__container {
+  width: 100%;
+
+  .value__inner {
+    width: 100%;
+  }
+}
+
+.edit-info__footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  .btn {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: solid 1px $color_gray_3;
+  }
+
+  .btn + .btn {
+    margin-left: 2rem;
+  }
+
+  .btn--cancel {
+    color: $color_gray_1;
+    background-color: $color_white;
+  }
+
+  .btn--save {
+    background-color: $color_green_1;
+    color: $color_white;
+    border: solid 1px $color_green_1;
+  }
+}
