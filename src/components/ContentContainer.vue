@@ -134,8 +134,9 @@ export default {
           localStorage.listAssets = JSON.stringify(items);
           this.pageCount = Math.ceil(metadata.total_hits / this.limit);
         })
-        .catch(() => {
-          this.$router.push('Error404');
+        .catch(e => {
+          console.log(e);
+          // this.$router.push('Error404');
         })
         .finally(() => {
           this.isLoading = false;

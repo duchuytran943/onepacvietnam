@@ -10,7 +10,8 @@ const routes = [
     name: 'Error500',
     component: () => import(/* webpackChunkName: "error500" */ '@/views/Error500.vue'),
   },
-  { path: '*', name: 'Error404', component: () => import(/* webpackChunkName: "error404" */ '@/views/Error404.vue') },
+  // eslint-disable-next-line max-len
+  // { path: '*', name: 'Error404', component: () => import(/* webpackChunkName: "error404" */ '@/views/Error404.vue') },
 ];
 
 const router = new VueRouter({
