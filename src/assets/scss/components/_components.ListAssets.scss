@@ -33,6 +33,12 @@
         border: solid 1px $color_green_1;
       }
     }
+
+    .action__item.active {
+      background-color: $color_green_1;
+      color: $color_white;
+      border: solid 1px $color_white;
+    }
   }
 }
 

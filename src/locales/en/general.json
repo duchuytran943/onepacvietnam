@@ -10,8 +10,10 @@
   "searchEverthing": "Enter search everything...",
   "action": {
     "like": "Like",
+    "unLike": "Unlike",
     "edit": "Edit",
-    "remove": "Remove"
+    "remove": "Remove",
+    "undo": "Undo"
   },
   "info": {
     "title": "Title",
@@ -25,5 +27,6 @@
     "prev": "Prev",
     "next": "Next"
   },
-  "dataEmpty": "Data empty"
+  "dataEmpty": "Data empty",
+  "areYouSure": "Are you sure?"
 }

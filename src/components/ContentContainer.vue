@@ -1,7 +1,7 @@
 <template>
   <div class="content__container">
     <Search />
-    <ViewToggle />
+    <ViewToggle :viewToggle.sync="viewToggle" />
     <LoadingSpinner v-if="isLoading" />
     <ListAssets v-if="listAssets.length" :items="listAssets" />
     <EmptyData v-else :isLoading="isLoading" />
@@ -55,6 +55,7 @@ export default {
       limit: 100,
       keyword: '',
       collection: {},
+      viewToggle: 'all',
     };
   },
 
@@ -62,6 +63,15 @@ export default {
     ...mapState('collection', ['assets']),
 
     listAssets() {
+      if (this.viewToggle === this.$vConfig.VIEW_TOGGLE.ALL) {
+        return this.assets.filter(asset => !asset.data[0].remove);
+      }
+      if (this.viewToggle === this.$vConfig.VIEW_TOGGLE.LIKED) {
+        return this.assets.filter(asset => asset.data[0].like && !asset.data[0].remove);
+      }
+      if (this.viewToggle === this.$vConfig.VIEW_TOGGLE.REMOVED) {
+        return this.assets.filter(asset => asset.data[0].remove);
+      }
       return this.assets;
     },
   },
@@ -75,12 +85,14 @@ export default {
     ...mapActions('collection', ['setAssets']),
 
     onChangeCurrentPage() {
+      this.viewToggle = this.$vConfig.VIEW_TOGGLE.ALL;
       this.getListData();
       this.$scrollToTop();
     },
 
     searchByKeyword(keyword) {
       this.keyword = keyword;
+      this.viewToggle = this.$vConfig.VIEW_TOGGLE.ALL;
       this.currentPage = 1;
       this.getListData();
     },
