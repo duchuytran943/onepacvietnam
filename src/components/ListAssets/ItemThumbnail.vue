@@ -2,7 +2,7 @@
   <div class="thumbnail__container">
     <img v-lazy="link" class="thumbnail" />
     <ul class="action">
-      <li class="action__item">{{ $t('general.action.like') }} +1</li>
+      <li class="action__item">{{ $t('general.action.like') }}</li>
       <li class="action__item">{{ $t('general.action.edit') }}</li>
       <li class="action__item">{{ $t('general.action.remove') }}</li>
     </ul>

@@ -3,7 +3,7 @@
     <Search />
     <ViewToggle />
     <LoadingSpinner v-if="isLoading" />
-    <ListAssets v-if="items.length" :items="items" />
+    <ListAssets v-if="listAssets.length" :items="listAssets" />
     <EmptyData v-else :isLoading="isLoading" />
     <Paginate
       v-model="currentPage"
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import Paginate from 'vuejs-paginate';
 import httpAxios from '@/httpAxios';
 import { Search } from '@/components/Search';
@@ -52,13 +53,18 @@ export default {
       currentPage: 1,
       pageCount: 1,
       limit: 100,
-      items: [],
       keyword: '',
       collection: {},
     };
   },
 
-  computed: {},
+  computed: {
+    ...mapState('collection', ['assets']),
+
+    listAssets() {
+      return this.assets;
+    },
+  },
 
   created() {
     this.getListData();
@@ -66,6 +72,8 @@ export default {
   },
 
   methods: {
+    ...mapActions('collection', ['setAssets']),
+
     onChangeCurrentPage() {
       this.getListData();
       this.$scrollToTop();
@@ -105,12 +113,12 @@ export default {
         .then(response => {
           this.collection = response.data.collection;
           const { items, metadata } = this.collection;
+          this.setAssets(items);
           localStorage.listAssets = JSON.stringify(items);
-          this.items = items;
           this.pageCount = Math.ceil(metadata.total_hits / this.limit);
         })
         .catch(() => {
-          this.$router.push({ name: 'Error404' });
+          this.$router.push('Error404');
         })
         .finally(() => {
           this.isLoading = false;
