@@ -1,3 +1,40 @@
 {
-  "backToHome": "Back to Home"
+  "backToHome": "Back to Home",
+  "navbarTitle": "Tran Duc Huy",
+  "navbarInfo": "Code test of 1PAC VietNam",
+  "footerInfo": "The code for this page is in",
+  "github": "github",
+  "all": "All",
+  "liked": "Liked",
+  "removed": "Removed",
+  "searchEverthing": "Enter search everything...",
+  "action": {
+    "like": "Like",
+    "unLike": "Unlike",
+    "edit": "Edit",
+    "remove": "Remove",
+    "undo": "Undo"
+  },
+  "info": {
+    "title": "Title",
+    "dateCreated": "Date created",
+    "description": "Description",
+    "location": "Location",
+    "mediaType": "Media type",
+    "keywords": "Keywords"
+  },
+  "paginate": {
+    "prev": "Prev",
+    "next": "Next"
+  },
+  "dataEmpty": "Data empty",
+  "areYouSure": "Are you sure?",
+  "sort": {
+    "newest": "Newest",
+    "oldest": "Oldest",
+    "aToZ": "A-Z",
+    "zToA": "Z-A"
+  },
+  "cancel": "Cancel",
+  "save": "Save"
 }

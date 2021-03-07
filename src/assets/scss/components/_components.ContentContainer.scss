@@ -1,0 +1,53 @@
+.content__container {
+  position: relative;
+}
+
+.c-pagination {
+  @include flexCenter;
+  margin: 0 20px;
+  border-radius: 4px;
+  flex-flow: row wrap;
+  color: $color_green_1;
+
+  .disabled a {
+    color: $color_gray_2;
+    cursor: not-allowed;
+  }
+
+  .page-item {
+    margin-top: 0.5rem;
+    list-style: none;
+
+    .page-link-item {
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      .page-link-item {
+        color: $color_white;
+        background-color: $color_gray_4;
+      }
+    }
+
+    &.active {
+      .page-link-item {
+        color: $color_white;
+        background-color: $color_green_1;
+        border-color: $color_green_1;
+      }
+    }
+  }
+
+  .page-item + .page-item {
+    margin-left: 0.5rem;
+  }
+
+  .page-link-item {
+    outline: 0;
+  }
+
+  .break-view .break-view-link {
+    cursor: not-allowed;
+  }
+}

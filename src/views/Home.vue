@@ -1,14 +1,18 @@
 <template>
-  <div class="home">
-    <h1>This is home page</h1>
-  </div>
+  <HomePageLayout>
+    <ContentContainer />
+  </HomePageLayout>
 </template>
 
 <script>
+import ContentContainer from '@/components/ContentContainer.vue';
+
 export default {
   name: 'Home',
 
-  components: {},
+  components: {
+    ContentContainer,
+  },
 
   data() {
     return {};
