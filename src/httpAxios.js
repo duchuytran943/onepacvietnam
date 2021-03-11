@@ -17,6 +17,9 @@ service.interceptors.response.use(
   response => response,
   error => {
     if (error.response) {
+      // Show all info
+      console.log('error.response', error.response);
+
       // Backend error
       if (error.response.status === 500) {
         console.log('response 500');
